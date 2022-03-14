@@ -26,6 +26,9 @@ public:
 
 	int countElements();
 
+	Node<T>* getFirst();
+	Node<T>* getLast();
+
 };
 template <class T>
 List<T>::List()
@@ -314,4 +317,16 @@ int List<T>::countElements()
 		aux = aux->getNext();
 	}
 	return counter;
+}
+
+template<class T>
+inline Node<T>* List<T>::getFirst()
+{
+	return first;
+}
+
+template<class T>
+inline Node<T>* List<T>::getLast()
+{
+	return last;
 }

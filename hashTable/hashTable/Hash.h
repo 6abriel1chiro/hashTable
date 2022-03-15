@@ -1,15 +1,16 @@
 #pragma once
-#define TAM 4013 
+#define TAM 1009
 #include "List.h"
 
 template<class T>
 class Hash
 {
 private:
-	List<T> hash[TAM];
+	List<T>* hash;
 	int len;
 public:
 	Hash();
+	Hash(int len);
 	~Hash();
 
 	void insertToHash(T elem);
@@ -36,6 +37,15 @@ public:
 template<class T>
 inline Hash<T>::Hash()
 {
+	len = TAM;
+	hash = new List<T>[len];
+}
+
+template<class T>
+inline Hash<T>::Hash(int len)
+{ 
+	this->len = len;
+	hash = new List<T>[len];
 
 }
 
@@ -47,7 +57,6 @@ inline Hash<T>::~Hash()
 template<class T>
 inline void Hash<T>::insertToHash(T elem)
 {
-
 	int index = getPos(elem);
 	hash[index].InsertFirst(elem);
 }
@@ -72,9 +81,9 @@ template<class T>
 inline void Hash<T>::showHash()
 {
 
-		for (int i = 0; i < TAM; i++)
+		for (int i = 0; i < len; i++)
 		{
-			cout << i << ". ";
+			cout << i << "-> ";
 			hash[i].showList();
 			cout << endl;
 		}
@@ -130,18 +139,18 @@ inline unsigned long long Hash<T>::CharToInt(char text)
 template<class T>
 inline int Hash<T>::getLen()
 {
-	return TAM;
+	return len;
 }
 
 template<class T>
 inline int Hash<T>::getPos(int x)
 {
-	return x % TAM;
+	return x % len;
 }
 
 template<class T>
 inline int Hash<T>::getPos(string x)
 {
 	int num = getNum(x);
-	return num % TAM;
+	return num % len;
 }

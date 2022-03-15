@@ -28,7 +28,7 @@ void readFromFile(Hash<string>& hashList)
 int testMenu()
 {
     string dato;
-    Hash<string> HashList;
+    Hash<string> HashList(60009);
     int opcion;
     do
     {

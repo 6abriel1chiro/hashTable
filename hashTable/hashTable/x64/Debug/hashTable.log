@@ -1,13 +1,13 @@
 ﻿  main.cpp
-C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\hashTable\Hash.h(145,10): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int', possible loss of data
-C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\hashTable\Hash.h(144): message : while compiling class template member function 'int Hash<std::string>::getPos(std::string)'
-C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\hashTable\Hash.h(51): message : see reference to function template instantiation 'int Hash<std::string>::getPos(std::string)' being compiled
-C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\hashTable\Hash.h(38): message : while compiling class template member function 'Hash<std::string>::Hash(void)'
-C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\hashTable\main.cpp(31): message : see reference to function template instantiation 'Hash<std::string>::Hash(void)' being compiled
+C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\hashTable\Hash.h(154,10): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int', possible loss of data
+C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\hashTable\Hash.h(153): message : while compiling class template member function 'int Hash<std::string>::getPos(std::string)'
+C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\hashTable\Hash.h(60): message : see reference to function template instantiation 'int Hash<std::string>::getPos(std::string)' being compiled
+C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\hashTable\Hash.h(46): message : while compiling class template member function 'Hash<std::string>::Hash(int)'
+C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\hashTable\main.cpp(31): message : see reference to function template instantiation 'Hash<std::string>::Hash(int)' being compiled
 C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\hashTable\main.cpp(21): message : see reference to class template instantiation 'Hash<std::string>' being compiled
-C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\hashTable\Hash.h(103,19): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int', possible loss of data
-C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\hashTable\Hash.h(87): message : while compiling class template member function 'unsigned __int64 Hash<std::string>::getNum(std::string)'
-C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\hashTable\Hash.h(145): message : see reference to function template instantiation 'unsigned __int64 Hash<std::string>::getNum(std::string)' being compiled
-C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\hashTable\Hash.h(144): message : while compiling class template member function 'int Hash<std::string>::getPos(std::string)'
-C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\hashTable\Hash.h(51): message : see reference to function template instantiation 'int Hash<std::string>::getPos(std::string)' being compiled
+C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\hashTable\Hash.h(112,19): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int', possible loss of data
+C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\hashTable\Hash.h(96): message : while compiling class template member function 'unsigned __int64 Hash<std::string>::getNum(std::string)'
+C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\hashTable\Hash.h(154): message : see reference to function template instantiation 'unsigned __int64 Hash<std::string>::getNum(std::string)' being compiled
+C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\hashTable\Hash.h(153): message : while compiling class template member function 'int Hash<std::string>::getPos(std::string)'
+C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\hashTable\Hash.h(60): message : see reference to function template instantiation 'int Hash<std::string>::getPos(std::string)' being compiled
   hashTable.vcxproj -> C:\Users\ichir\source\repos\HashTable\hashTable\hashTable\x64\Debug\hashTable.exe

@@ -4,38 +4,30 @@
 
 
 
-void readFromFile(Hash<string>& materias)
+void readFromFile(Hash<string>& hashList)
 {
 
     ifstream file;
 
-    string nombres;
-    string titulo;
-    string filename = "estudiantes.txt";
+    string word;
 
-    file.open("estudiantes.txt");
+    file.open("test.txt");
     if (!file)
         cout << "no abre ";
     else
         while (!file.eof())
         {
-            file >> titulo;
-
-            do
-            {
-                file >> nombres;
-                materias.insertToHash(titulo);
-            } while (nombres != "#");
+            file >> word;
+            hashList.insertToHash(word);
         }
     file.close();
 
-    //materias.mostrar();
+    //.mostrar();
 }
 
 int testMenu()
 {
-    string materia;
-    string estudiante;
+    string dato;
     Hash<string> HashList;
     int opcion;
     do
@@ -54,9 +46,8 @@ int testMenu()
 
         if (opcion == 1)
         {
-            cout << "Materia: "; cin >> materia;
-            cout << "Estudiante: "; cin >> estudiante;
-            HashList.insertToHash(estudiante);
+            cout << "dato: "; cin >> dato;
+            HashList.insertToHash(dato);
         }
         if (opcion == 2)
         {
@@ -64,14 +55,14 @@ int testMenu()
         }
         if (opcion == 3)
         {
-            cout << "Estudiante a eliminar: "; cin >> estudiante;
-            HashList.deleteFromHash(estudiante);
+            cout << "Estudiante a eliminar: "; cin >> dato;
+            HashList.deleteFromHash(dato);
             cout << "eliminado: " << endl;
         }
         if (opcion == 4)
         {
-            cout << "Estudiante a Buscar: "; cin >> estudiante;
-            string msg = HashList.findInHash(estudiante);
+            cout << "Estudiante a Buscar: "; cin >> dato;
+            string msg = HashList.findInHash(dato);
             cout << "resultado : " << msg << endl;
         }
         if (opcion == 5)

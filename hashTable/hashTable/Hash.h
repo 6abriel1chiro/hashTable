@@ -1,5 +1,5 @@
 #pragma once
-#define TAM 1000
+#define TAM 4013 
 #include "List.h"
 
 template<class T>
@@ -9,7 +9,6 @@ private:
 	List<T> hash[TAM];
 	int len;
 public:
-	Hash(int len);
 	Hash();
 	~Hash();
 
@@ -32,12 +31,7 @@ public:
 	int getPos(string x );
 };
 
-template<class T>
-inline Hash<T>::Hash(int len)
-{
-	this->len = len;
 
-}
 
 template<class T>
 inline Hash<T>::Hash()
@@ -77,19 +71,14 @@ inline T Hash<T>::findInHash(T elem)
 template<class T>
 inline void Hash<T>::showHash()
 {
-	for (int i = 0; i < TAM; i++)
-	{
-		int total = 0;
-		Node<T>* aux = hash[i].getFirst();
-		while (aux != NULL)
+
+		for (int i = 0; i < TAM; i++)
 		{
-			total++;
-			cout  << total<<". ";
-			cout << aux->getElem() << endl;
-			aux = aux->getNext();
+			cout << i << ". ";
+			hash[i].showList();
 			cout << endl;
 		}
-	}
+	
 
 }
 
@@ -111,17 +100,17 @@ inline unsigned long long Hash<T>::getNum(string text)
 			else
 			{
 
-				int miChar = CharToInt(text[i]);
-				if (miChar > 99)
+				int character = CharToInt(text[i]);
+				if (character > 99)
 				{
 					output *= 1000;
 				}
-				else if (miChar > 9)
+				else if (character > 9)
 				{
 					output *= 100;
 				}
 
-				output += miChar;
+				output += character;
 			}
 
 
@@ -141,7 +130,7 @@ inline unsigned long long Hash<T>::CharToInt(char text)
 template<class T>
 inline int Hash<T>::getLen()
 {
-	return len;
+	return TAM;
 }
 
 template<class T>

@@ -1,28 +1,25 @@
 #include "Hash.h"
 #include <fstream>
+#include <string>
 
 
 
 
-void readFromFile(Hash<string>& hashList)
+void readFromFile(Hash<string>& myHash)
 {
 
     ifstream file;
-
-    string word;
-
-    file.open("test.txt");
+    string dato;
+    file.open("HASH_ING.txt");
     if (!file)
         cout << "no abre ";
     else
-        while (!file.eof())
+        while (!file.eof() && file>>dato)
         {
-            file >> word;
-            hashList.insertToHash(word);
+          //file >> dato;
+          myHash.insertToHash(dato);
         }
     file.close();
-
-    //.mostrar();
 }
 
 int testMenu()
@@ -38,7 +35,7 @@ int testMenu()
         cout << "3--Eliminar--" << endl;
         cout << "4--Buscar--" << endl;
         cout << "5. leerDeArchivo" << endl;
-        cout << "6. NOT DEFINED" << endl;
+        cout << "6. Contar Colisiones" << endl;
         cout << "7-Salir--" << endl;
         cin >> opcion;
         system("cls");
@@ -47,6 +44,7 @@ int testMenu()
         if (opcion == 1)
         {
             cout << "dato: "; cin >> dato;
+     
             HashList.insertToHash(dato);
         }
         if (opcion == 2)
@@ -55,13 +53,13 @@ int testMenu()
         }
         if (opcion == 3)
         {
-            cout << "Estudiante a eliminar: "; cin >> dato;
+            cout << "dato a eliminar: "; cin >> dato;
             HashList.deleteFromHash(dato);
             cout << "eliminado: " << endl;
         }
         if (opcion == 4)
         {
-            cout << "Estudiante a Buscar: "; cin >> dato;
+            cout << "dato a Buscar: "; cin >> dato;
             string msg = HashList.findInHash(dato);
             cout << "resultado : " << msg << endl;
         }
@@ -72,7 +70,7 @@ int testMenu()
         }
         if (opcion == 6)
         {
-            //sgnte requerimiento
+            HashList.countCollisions();
         }
 
     } while (opcion != 7);
@@ -82,7 +80,6 @@ int testMenu()
 int main()
 {
 
-	testMenu();
+    testMenu();
 }
 
-	

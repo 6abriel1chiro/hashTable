@@ -40,7 +40,10 @@ List<T>::List()
 template <class T>
 List<T>::~List()
 {
-
+	while (first!=NULL)
+	{
+		DeleteFirst();
+	}
 }
 template <class T>
 int List<T>::getlen()
@@ -156,6 +159,7 @@ template <class T>
 T List<T>::SearchNoRec(T elem)
 {
 	Node<T>* aux = first;
+	T aux2;
 	while (aux != NULL)
 	{
 		if (aux->getElem() == elem)
@@ -164,7 +168,7 @@ T List<T>::SearchNoRec(T elem)
 		}
 		aux = aux->getNext();
 	}
-	return NULL;
+	return aux2;
 }
 template <class T>
 T List<T>::SearchPos(int pos)
@@ -309,7 +313,7 @@ int List<T>::countElements()
 	Node<T>* aux = first;
 	if (first == NULL)
 	{
-		cout << "Empty List";
+		cout <<" E "<<endl;
 	}
 	while (aux != NULL)
 	{

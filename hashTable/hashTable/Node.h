@@ -10,7 +10,7 @@ private:
 public:
 	Node(T elem, Node<T>* next);
 	~Node();
-	Node* getNext();
+	Node<T>* getNext();
 	T getElem();
 	void setElem(T elem);
 	void setNext(Node<T>* next);
@@ -26,11 +26,13 @@ Node<T>::~Node()
 {
 
 }
-template <class T>
-Node<T>* Node<T>::getNext()
+
+template<class T>
+inline Node<T>* Node<T>::getNext()
 {
 	return next;
 }
+
 template <class T>
 T Node<T>::getElem()
 {

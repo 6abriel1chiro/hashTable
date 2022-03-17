@@ -1,13 +1,14 @@
 #pragma once
-#define TAM 4013 
+#define TAM 56009
+#define TAMCOL 50
 #include "List.h"
+#include <math.h>
 
 template<class T>
 class Hash
 {
 private:
 	List<T> hash[TAM];
-	int len;
 public:
 	Hash();
 	~Hash();
@@ -25,10 +26,13 @@ public:
 
 
 
-	int getLen();
+	int getTAM();
 
-	int getPos(int x );
-	int getPos(string x );
+	int getPos(int x);
+	int getPos(string x);
+
+
+	void countCollisions();
 };
 
 
@@ -49,6 +53,11 @@ inline void Hash<T>::insertToHash(T elem)
 {
 
 	int index = getPos(elem);
+
+	if (index <0)
+	{
+		index = index * -1;
+	}
 	hash[index].InsertFirst(elem);
 }
 
@@ -63,7 +72,7 @@ template<class T>
 inline T Hash<T>::findInHash(T elem)
 {
 	int index = getPos(elem);
-	
+
 	return hash[index].SearchNoRec(elem);
 
 }
@@ -71,14 +80,12 @@ inline T Hash<T>::findInHash(T elem)
 template<class T>
 inline void Hash<T>::showHash()
 {
-
-		for (int i = 0; i < TAM; i++)
-		{
-			cout << i << ". ";
-			hash[i].showList();
-			cout << endl;
-		}
-	
+	for (int i = 0; i < TAM; i++)
+	{
+		cout << i << " . ";
+		hash[i].showList();
+		cout << endl;
+	}
 
 }
 
@@ -100,17 +107,17 @@ inline unsigned long long Hash<T>::getNum(string text)
 			else
 			{
 
-				int character = CharToInt(text[i]);
-				if (character > 99)
+				int miChar = CharToInt(text[i]);
+				if (miChar > 99)
 				{
 					output *= 1000;
 				}
-				else if (character > 9)
+				else if (miChar > 9)
 				{
 					output *= 100;
 				}
 
-				output += character;
+				output += miChar;
 			}
 
 
@@ -128,7 +135,7 @@ inline unsigned long long Hash<T>::CharToInt(char text)
 }
 
 template<class T>
-inline int Hash<T>::getLen()
+inline int Hash<T>::getTAM()
 {
 	return TAM;
 }
@@ -144,4 +151,28 @@ inline int Hash<T>::getPos(string x)
 {
 	int num = getNum(x);
 	return num % TAM;
+}
+
+template<class T>
+inline void Hash<T>::countCollisions()
+{
+	int boxes[TAMCOL];
+
+	// TODO EN 0
+	for (int i = 0; i < TAMCOL; i++)
+	{
+		boxes[i] =0;
+	}
+
+	for (int i = 0; i < TAM; i++)
+	{
+		int nElements = hash[i].countElements();
+		boxes[nElements] = boxes[nElements]+1;
+	}
+
+	for (int i = 0; i < TAMCOL; i++)
+	{
+		cout << i <<" : "<< boxes[i] << endl;
+	}
+
 }
